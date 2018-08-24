@@ -15,9 +15,9 @@ bso_draw_3den_markers =
             private _color = getArray (configFile >> "CfgMarkerColors" >> _colorName >> "color");
             if (_colorName == "Default") then {
                 _color = getArray (configFile >> "CfgMarkers" >> _class >> "color");
-                _color = _color apply {
-                    if (_x isEqualType "") then {call compile _x} else {_x};
-                };
+            };
+            _color = _color apply {
+                if (_x isEqualType "") then {call compile _x} else {_x};
             };
             private _alpha = (_x get3DENAttribute "alpha") select 0;
             _color set [3, _alpha];
